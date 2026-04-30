@@ -15,7 +15,8 @@ In addition, while Ollama runs locally on macOS via its native ollama serve proc
 In summary, it enforces single-model execution, queues and serializes model switching, provides live request/response inspection via UI, and exposes the local Ollama server to the network through controlled forwarding.
 # Demo
 
-![docs/video.jpg](https://youtu.be/wvez632CkjY)
+[![Youtube](docs/video.jpg)](https://youtu.be/wvez632CkjY)
+
 
 # Installation
 
