@@ -176,6 +176,18 @@ curl http://0.0.0.0:11444/api/chat -d '{
 
 ollama ps
 
+# lets use this from our mac
+curl http://192.168.8.49:11444/api/chat -d '{
+    "model": "qwen2.5:7b",
+    "messages": [{"role": "user", "content": "Hello!"}]
+}'
+
+curl http://192.168.8.49:11444/api/chat -d '{
+    "model": "qwen2.5-coder:7b",
+    "messages": [{"role": "user", "content": "Hello!"}]
+}'
+
 # also there is UI to inspect traffic (even on another machine via LAN)
+http://192.168.8.49:11444/
 
 ```
