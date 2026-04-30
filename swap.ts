@@ -1,12 +1,12 @@
 /**
- * $(asdf which node | tr -d '\n') proxy.ts $(which ollama | tr -d '\n')
- * DEBUG=1 $(asdf which node | tr -d '\n') proxy.ts $(which ollama | tr -d '\n')
+ * $(asdf which node | tr -d '\n') swap.ts $(which ollama | tr -d '\n')
+ * DEBUG=1 $(asdf which node | tr -d '\n') swap.ts $(which ollama | tr -d '\n')
  *
  * start:
  * launchctl bootstrap gui/$(id -u) ~/Library/LaunchAgents/com.yourname.ollama-swap.plist
  * 
  * inspect:
- * ps aux | grep proxy.ts
+ * ps aux | grep swap.ts
  * 
  * launchctl print gui/$(id -u)/com.yourname.ollama-swap
  * launchctl print gui/$(id -u)/com.yourname.ollama-swap | grep state
@@ -125,7 +125,7 @@ if (process.argv.includes("--help") || process.argv.includes("-h")) {
 Ollama Proxy - Smart swapping proxy for Ollama
 
 Usage:
-  OLLAMA_BIN=/usr/local/bin/ollama PORT=11444 node proxy.ts
+  OLLAMA_BIN=/usr/local/bin/ollama PORT=11444 node swap.ts
 
 Environment Variables:
   PORT          Port this proxy server runs on (default: 11444)
@@ -144,17 +144,17 @@ Homepage: https://github.com/stopsopa/ollama-swap
 // Validations
 if (!/^\d+$/.test(String(CONFIG.PORT))) {
   throw new Error(
-    `proxy.ts error: Invalid PORT: ${CONFIG.PORT}. Must be digits.`,
+    `swap.ts error: Invalid PORT: ${CONFIG.PORT}. Must be digits.`,
   );
 }
 if (!/^\d+$/.test(String(CONFIG.PROXY_PORT))) {
   throw new Error(
-    `proxy.ts error: Invalid PROXY_PORT: ${CONFIG.PROXY_PORT}. Must be digits.`,
+    `swap.ts error: Invalid PROXY_PORT: ${CONFIG.PROXY_PORT}. Must be digits.`,
   );
 }
 if (!/^https?$/.test(CONFIG.PROXY_SCHEMA)) {
   throw new Error(
-    `proxy.ts error: Invalid PROXY_SCHEMA: ${CONFIG.PROXY_SCHEMA}. Must be 'http' or 'https'.`,
+    `swap.ts error: Invalid PROXY_SCHEMA: ${CONFIG.PROXY_SCHEMA}. Must be 'http' or 'https'.`,
   );
 }
 

@@ -4,7 +4,7 @@
 set -e
 
 # Path to the files
-PROXY_FILE="proxy.ts"
+PROXY_FILE="swap.ts"
 TEMPLATE_FILE="README.template.md"
 OUTPUT_FILE="README.md"
 

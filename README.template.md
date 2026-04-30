@@ -2,12 +2,12 @@
 
 ```
 
-curl -fsSL https://stopsopa.github.io/ollama-swap/proxy.ts -o proxy.ts
+curl -fsSL https://stopsopa.github.io/ollama-swap/swap.ts -o swap.ts
 if echo "shahash" | sha256sum -c -; then
   echo "CHECKSUM VALID"
 else
   echo "ERROR: INVLID CHECKSUM";
-  rm -f proxy.ts
+  rm -f swap.ts
 fi
 
 ```
@@ -30,6 +30,6 @@ PORT=11444 \
 HOST="0.0.0.0" \
 PROXY_PORT=11434 \
 PROXY_HOST="192.168.8.49" \
-node proxy.ts
+node swap.ts
 
 ```
