@@ -105,6 +105,9 @@ cat <<EOF > ~/Library/LaunchAgents/com.stopsopa.ollama-swap.plist
 </plist>
 EOF
 
+# inspect
+vi ~/Library/LaunchAgents/com.stopsopa.ollama-swap.plist
+
 # start the service
 launchctl bootstrap gui/$(id -u) ~/Library/LaunchAgents/com.stopsopa.ollama-swap.plist
 # register it with launchd and run at the same time
