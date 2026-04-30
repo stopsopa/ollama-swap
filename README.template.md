@@ -1,6 +1,6 @@
 # installation
 
-```
+```sh
 
 curl -fsSL https://stopsopa.github.io/ollama-swap/swap.ts -o swap.ts
 if echo "shahash" | sha256sum -c -; then
@@ -23,7 +23,7 @@ Then run proxy pointing to ollama server:
   OLLAMA_BIN    Path to the ollama CLI tool (default: ollama)
   DEBUG         Set to 1 to enable debug logging -->
 
-```
+```sh
 
 PORT=11444 \
 HOST="0.0.0.0" \
@@ -35,7 +35,7 @@ node swap.ts
 
 # Mac deamon
 
-```
+```sh
 # enter user home directory
 cd ~
 
