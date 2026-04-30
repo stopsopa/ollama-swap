@@ -76,12 +76,6 @@ cat <<EOF > ~/Library/LaunchAgents/com.stopsopa.ollama-swap.plist
 <dict>
     <key>PORT</key>
     <string>11444</string>
-    <key>HOST</key>
-    <string>0.0.0.0</string>
-    <key>PROXY_PORT</key>
-    <string>11434</string>
-    <key>PROXY_HOST</key>
-    <string>192.168.8.49</string>
     <key>OLLAMA_BIN</key>
     <string>$(which ollama | tr -d '\n')</string>
 </dict>
@@ -109,11 +103,13 @@ EOF
 vi ~/Library/LaunchAgents/com.stopsopa.ollama-swap.plist
 
 # start the service
+ps aux | grep swap.ts
 launchctl bootstrap gui/$(id -u) ~/Library/LaunchAgents/com.stopsopa.ollama-swap.plist
 # register it with launchd and run at the same time
 # use this to run again after stopping it
 
 # confirm registration
+launchctl list | grep com.stopsopa.ollama-swap
 launchctl print gui/$(id -u)/com.stopsopa.ollama-swap
 launchctl print gui/$(id -u)/com.stopsopa.ollama-swap | grep state
 
@@ -121,6 +117,13 @@ launchctl print gui/$(id -u)/com.stopsopa.ollama-swap | grep state
 log show --predicate 'processID == 9098' --last 10m
 
 # stop:
+ps aux | grep swap.ts
 launchctl bootout gui/$(id -u)/com.stopsopa.ollama-swap
+ps aux | grep swap.ts
+
+# logs
+ls -la ~/ollama-swap/logs/
+tail -f ~/ollama-swap/logs/launchd.out.log
+tail -f ~/ollama-swap/logs/launchd.err.log
 
 ```

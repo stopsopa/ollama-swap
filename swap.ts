@@ -113,7 +113,7 @@ const CONFIG = {
   PORT: process.env.PORT || "11444",
   HOST: process.env.HOST || "0.0.0.0",
   PROXY_PORT: process.env.PROXY_PORT || "11434",
-  PROXY_HOST: process.env.PROXY_HOST || "localhost",
+  PROXY_HOST: process.env.PROXY_HOST || "0.0.0.0",
   PROXY_SCHEMA: process.env.PROXY_SCHEMA || "http",
   OLLAMA_BIN: process.env.OLLAMA_BIN || "ollama",
 };
@@ -129,7 +129,7 @@ Environment Variables:
   PORT          Port this proxy server runs on (default: 11444)
   HOST          Host this proxy server binds to (default: 0.0.0.0)
   PROXY_PORT    Port of the target Ollama server (default: 11434)
-  PROXY_HOST    Host of the target Ollama server (default: localhost)
+  PROXY_HOST    Host of the target Ollama server (default: 0.0.0.0)
   PROXY_SCHEMA  Schema for target Ollama server (http or https, default: http)
   OLLAMA_BIN    Path to the ollama CLI tool (default: ollama)
   DEBUG         Set to 1 to enable debug logging
