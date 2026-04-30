@@ -159,6 +159,13 @@ ollama ps
 ollama stop qwen2.5:7b
 ollama stop qwen2.5-coder:7b
 
+# I cannot request from other machine via LAN
+curl http://192.168.8.49:11434/api/chat -d '{
+    "model": "qwen2.5:7b",
+    "messages": [{"role": "user", "content": "Hello!"}]
+}'
+# OLLAMA_HOST=0.0.0.0 ollama serve
+
 # now let's use our proxy server to run different models
 # and observe Activity Monitory
 curl http://0.0.0.0:11444/api/chat -d '{
