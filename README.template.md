@@ -113,7 +113,7 @@ launchctl bootstrap gui/$(id -u) ~/Library/LaunchAgents/com.stopsopa.ollama-swap
 # use this to run again after stopping it
 
 # confirm registration
-launchctl list | grep com.stopsopa.ollama-swap
+launchctl list | grep ollama
 launchctl print gui/$(id -u)/com.stopsopa.ollama-swap
 launchctl print gui/$(id -u)/com.stopsopa.ollama-swap | grep state
 
