@@ -70,8 +70,21 @@ cat <<EOF > ~/Library/LaunchAgents/com.stopsopa.ollama-swap.plist
 <array>
     <string>$(asdf which node | tr -d '\n')</string>
     <string>${HOME}/swap.ts</string>
-    <string>$(which ollama | tr -d '\n')</string>
 </array>
+
+<key>EnvironmentVariables</key>
+<dict>
+    <key>PORT</key>
+    <string>11444</string>
+    <key>HOST</key>
+    <string>0.0.0.0</string>
+    <key>PROXY_PORT</key>
+    <string>11434</string>
+    <key>PROXY_HOST</key>
+    <string>192.168.8.49</string>
+    <key>OLLAMA_BIN</key>
+    <string>$(which ollama | tr -d '\n')</string>
+</dict>
 
 <key>RunAtLoad</key>
 <true/>

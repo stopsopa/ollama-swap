@@ -4,27 +4,25 @@
  *
  * start:
  * launchctl bootstrap gui/$(id -u) ~/Library/LaunchAgents/com.stopsopa.ollama-swap.plist
- * 
+ *
  * inspect:
  * ps aux | grep swap.ts
- * 
+ *
  * launchctl print gui/$(id -u)/com.stopsopa.ollama-swap
  * launchctl print gui/$(id -u)/com.stopsopa.ollama-swap | grep state
- * 
+ *
  * # after extracting pid
  * log show --predicate 'processID == 9098' --last 10m
- * 
+ *
  * stop:
  * launchctl bootout gui/$(id -u)/com.stopsopa.ollama-swap
- * 
+ *
  */
 
 import * as http from "http";
 import * as https from "https";
 import { exec } from "child_process";
 import * as util from "util";
-import * as fs from "fs";
-import * as path from "path";
 
 const execAsync = util.promisify(exec);
 
@@ -117,7 +115,7 @@ const CONFIG = {
   PROXY_PORT: process.env.PROXY_PORT || "11434",
   PROXY_HOST: process.env.PROXY_HOST || "localhost",
   PROXY_SCHEMA: process.env.PROXY_SCHEMA || "http",
-  OLLAMA_BIN: process.env.OLLAMA_BIN || process.argv[2] || "ollama",
+  OLLAMA_BIN: process.env.OLLAMA_BIN || "ollama",
 };
 
 if (process.argv.includes("--help") || process.argv.includes("-h")) {
