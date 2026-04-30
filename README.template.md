@@ -31,6 +31,10 @@ PROXY_PORT=11434 \
 PROXY_HOST="192.168.8.49" \
 node swap.ts
 
+# see also
+
+node swap.ts --help
+
 ```
 
 # Mac deamon
@@ -125,5 +129,53 @@ ps aux | grep swap.ts
 ls -la ~/ollama-swap/logs/
 tail -f ~/ollama-swap/logs/launchd.out.log
 tail -f ~/ollama-swap/logs/launchd.err.log
+
+```
+
+# inspecing 
+
+```sh
+
+# Check if ollama is running with given model you like (in my case qwen2.5:7b)
+curl http://0.0.0.0:11434/api/chat -d '{
+    "model": "qwen2.5:7b",
+    "messages": [{"role": "user", "content": "Hello!"}]
+}'
+
+# then let's see which model stayed running
+ollama ps
+
+# observe memorey consumption in Activity Monitor when different model is used
+
+curl http://0.0.0.0:11434/api/chat -d '{
+    "model": "qwen2.5-coder:7b",
+    "messages": [{"role": "user", "content": "Hello!"}]
+}'
+
+# here we can see 2 models are running
+ollama ps
+
+# now let's stop all running models
+ollama stop qwen2.5:7b
+ollama stop qwen2.5-coder:7b
+
+# now let's use our proxy server to run different models
+# and observe Activity Monitory
+curl http://0.0.0.0:11444/api/chat -d '{
+    "model": "qwen2.5:7b",
+    "messages": [{"role": "user", "content": "Hello!"}]
+}'
+
+ollama ps
+
+
+curl http://0.0.0.0:11444/api/chat -d '{
+    "model": "qwen2.5-coder:7b",
+    "messages": [{"role": "user", "content": "Hello!"}]
+}'
+
+ollama ps
+
+# also there is UI to inspect traffic (even on another machine via LAN)
 
 ```
