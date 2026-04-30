@@ -13,6 +13,9 @@ The proxy also provides visibility into all traffic. It forwards every request a
 In addition, while Ollama runs locally on macOS via its native ollama serve process, it is not bound to 0.0.0.0, which makes it inaccessible over the local network. This proxy is bound to 0.0.0.0 and forwards traffic to the local Ollama instance, effectively exposing it over LAN while keeping control over execution and model switching.
 
 In summary, it enforces single-model execution, queues and serializes model switching, provides live request/response inspection via UI, and exposes the local Ollama server to the network through controlled forwarding.
+# Demo
+
+![docs/video.jpg](https://youtu.be/wvez632CkjY)
 
 # Installation
 
