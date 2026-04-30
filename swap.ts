@@ -3,19 +3,19 @@
  * DEBUG=1 $(asdf which node | tr -d '\n') swap.ts $(which ollama | tr -d '\n')
  *
  * start:
- * launchctl bootstrap gui/$(id -u) ~/Library/LaunchAgents/com.yourname.ollama-swap.plist
+ * launchctl bootstrap gui/$(id -u) ~/Library/LaunchAgents/com.stopsopa.ollama-swap.plist
  * 
  * inspect:
  * ps aux | grep swap.ts
  * 
- * launchctl print gui/$(id -u)/com.yourname.ollama-swap
- * launchctl print gui/$(id -u)/com.yourname.ollama-swap | grep state
+ * launchctl print gui/$(id -u)/com.stopsopa.ollama-swap
+ * launchctl print gui/$(id -u)/com.stopsopa.ollama-swap | grep state
  * 
  * # after extracting pid
  * log show --predicate 'processID == 9098' --last 10m
  * 
  * stop:
- * launchctl bootout gui/$(id -u)/com.yourname.ollama-swap
+ * launchctl bootout gui/$(id -u)/com.stopsopa.ollama-swap
  * 
  */
 
