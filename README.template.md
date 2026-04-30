@@ -103,6 +103,9 @@ cat <<EOF > ~/Library/LaunchAgents/com.stopsopa.ollama-swap.plist
 </plist>
 EOF
 
+# check ollama services
+launchctl list | grep ollama
+
 # inspect
 vi ~/Library/LaunchAgents/com.stopsopa.ollama-swap.plist
 
