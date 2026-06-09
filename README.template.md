@@ -53,7 +53,6 @@ else
 fi
 
 # create log directory
-mkdir -p ~/ollama-swap
 mkdir -p ~/ollama-swap/logs
 
 # create launch agent directory
@@ -135,7 +134,7 @@ tail -f ~/ollama-swap/logs/launchd.err.log
 
 ```
 
-# inspecing 
+# Inspecting 
 
 ```sh
 
